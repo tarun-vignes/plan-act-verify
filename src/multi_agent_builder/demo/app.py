@@ -1,3 +1,11 @@
+"""
+Demo Application for the Multi-Agent Builder.
+
+This module provides a web application that serves a browser-based UI for
+interacting with the autonomous prototype builder. Users can submit product
+ideas, monitor build progress in real-time, and view generated artifacts.
+"""
+
 from __future__ import annotations
 
 import json
@@ -14,6 +22,7 @@ from .job_store import BuildJob, JobStore
 from .views import render_artifact_page, render_home_page
 
 
+# List of artifacts that can be viewed in the browser
 ALLOWED_ARTIFACTS = {
     "requirements.md",
     "requirements.json",
@@ -27,6 +36,7 @@ ALLOWED_ARTIFACTS = {
     "build_summary.json",
 }
 
+# Order of milestones for progress tracking
 MILESTONE_ORDER = [
     "specification",
     "architecture",
@@ -35,7 +45,11 @@ MILESTONE_ORDER = [
     "evaluation",
     "summary",
 ]
+
+
 class DemoResponse:
+    """Simple response object for HTTP responses."""
+
     def __init__(self, status_code: int, content_type: str, body: bytes) -> None:
         self.status_code = status_code
         self.content_type = content_type

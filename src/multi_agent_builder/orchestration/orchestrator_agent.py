@@ -1,3 +1,12 @@
+"""
+Orchestrator Agent for the Multi-Agent Prototype Builder.
+
+This module contains the OrchestratorAgent class, which is the central coordinator
+for the autonomous build pipeline. It manages milestones, coordinates between
+planning, implementation, testing, and evaluation agents, and handles retries
+and iterative refinement.
+"""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -27,9 +36,11 @@ class OrchestratorAgent:
         retry_policy: RetryPolicy | None = None,
         agent_backends: dict[str, AgentBackend] | None = None,
     ) -> None:
+        """Initialize the orchestrator with output directory and agent backends."""
         self.output_root = ensure_directory(output_root)
         self.retry_policy = retry_policy or RetryPolicy()
         backends = agent_backends or {}
+        # Initialize all downstream agents
         self.specification_agent = SpecificationAgent(backends.get("specification"))
         self.architecture_agent = ArchitectureAgent(backends.get("architecture"))
         self.implementation_agent = ImplementationAgent(backends.get("implementation"))
@@ -41,7 +52,17 @@ class OrchestratorAgent:
         product_idea: str,
         event_listener: Callable[[dict[str, object]], None] | None = None,
     ) -> BuildResult:
+        """Execute the full build pipeline for a product idea.
+
+        Args:
+            product_idea: High-level description of the product to build.
+            event_listener: Optional callback for logging events.
+
+        Returns:
+            BuildResult containing the final summary and outputs.
+        """
         started = time.perf_counter()
+        # Generate unique run ID based on timestamp and idea
         run_id = f"{utc_timestamp().replace(':', '').replace('+00:00', 'Z').replace('-', '')}-{slugify(product_idea)[:30]}"
         run_dir = ensure_directory(self.output_root / run_id)
         artifacts_dir = ensure_directory(run_dir / "artifacts")
