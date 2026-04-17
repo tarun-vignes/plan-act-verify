@@ -14,17 +14,16 @@ I built a production-style multi-agent system that accepts a product idea and th
 
 ## Full Submission Description
 
-This project is a full vertical slice of an autonomous software engineering workflow. Instead of stopping at brainstorming, it runs a real build pipeline with clearly separated agents:
+This project is a full vertical slice of an autonomous software engineering workflow. It runs a real build pipeline instead of stopping at brainstorming, using clearly separated agents:
 
-- An Orchestrator Agent breaks work into milestones, coordinates execution, logs decisions, and handles retries.
-- A Specification Agent generates a PRD, feature breakdown, user stories, API contracts, assumptions, constraints, and open questions.
-- An Architecture Agent defines folder structure, service boundaries, and a production-ready persistence target.
-- An Implementation Agent generates a runnable modular Python prototype.
-- A Testing Agent creates unit and integration tests and runs validation automatically.
-- An Evaluation Agent scores quality, flags risks, surfaces technical debt, and recommends the next roadmap.
+- Orchestrator Agent: breaks work into milestones, coordinates execution, logs decisions, and handles retries.
+- Specification Agent: generates a PRD, feature breakdown, user stories, API contracts, assumptions, constraints, and gaps.
+- Architecture Agent: defines service boundaries, folder structure, and a persistence-ready design.
+- Implementation Agent: generates a runnable modular Python prototype.
+- Testing Agent: creates and runs unit/integration tests with structured failure reporting.
+- Evaluation Agent: scores code quality, flags risks, surfaces technical debt, and recommends the next roadmap.
 
-I also built a browser demo on top of the same orchestration core, so judges can watch the full pipeline run from a single idea and open the generated artifacts directly in the UI.
-The browser experience now shows live milestone progress and recent orchestration events while the autonomous build is running.
+The repo also includes a browser demo built on the same core. Judges can submit an idea, watch live milestone progress, and inspect generated requirements, architecture, tests, evaluation, and summary artifacts in one interface.
 
 ## Technical Highlights
 

@@ -51,6 +51,24 @@ Recommended environment variables:
 - `HOST`: defaults to `127.0.0.1` locally and can be overridden to `0.0.0.0`
 - `OUTPUT_ROOT`: where build artifacts are written inside the container or VM
 
+### Render Deployment
+
+For Render, create a new **Web Service** and use these settings:
+
+- **Region:** Oregon (US West)
+- **Branch:** `main`
+- **Root Directory:** leave blank
+- **Docker Build Context Directory:** `.`
+- **Dockerfile Path:** `Dockerfile`
+- **Health Check Path:** `/health`
+- **Instance Type:** Free
+- **Docker Command:** leave blank
+- **Pre-Deploy Command:** leave blank
+
+The app will start with the standard Render `PORT` environment variable.
+
+Once the service is healthy, use the public Render URL as the live showcase link for your submission.
+
 ## Notes
 
 - The browser demo uses the same orchestrator as the CLI, so deployment exercises the real autonomous build path.

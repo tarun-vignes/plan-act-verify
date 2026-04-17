@@ -10,7 +10,7 @@ def render_home_page(initial_payload: dict[str, object] | None) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Codex Creator Challenge Demo</title>
+  <title>Plan → Act → Verify Demo</title>
   <style>
     :root {{
       --panel: rgba(255, 250, 242, 0.92);
@@ -308,32 +308,32 @@ def render_home_page(initial_payload: dict[str, object] | None) -> str:
   <div class="shell">
     <section class="hero">
       <div class="panel hero-copy">
-        <div class="eyebrow">Codex Creator Challenge Demo</div>
-        <h1>From product idea to working prototype.</h1>
-        <p class="lede">This demo calls the same orchestrator used by the CLI. It produces a specification, architecture, runnable implementation, tests, evaluation, and a build summary from one prompt, and now shows the build progressing live in the browser.</p>
+        <div class="eyebrow">Plan → Act → Verify</div>
+        <h1>Build a prototype from an idea in one flow.</h1>
+        <p class="lede">This demo runs the same orchestrator behind the CLI. Enter a product idea, then watch it generate a spec, architecture, implementation, tests, evaluation, and build summary in real time.</p>
         <div class="hero-stats">
-          <div class="stat"><strong>5</strong>agent layers</div>
-          <div class="stat"><strong>1</strong>shared orchestration core</div>
-          <div class="stat"><strong>Live</strong>progress updates</div>
+          <div class="stat"><strong>5</strong> agent layers</div>
+          <div class="stat"><strong>1</strong> shared execution core</div>
+          <div class="stat"><strong>Live</strong> progress updates</div>
         </div>
       </div>
       <aside class="panel hero-aside">
-        <div class="mini-card"><h3>Plan</h3><p class="subtle">Requirements, user stories, contracts, assumptions, and gaps are produced before code generation starts.</p></div>
-        <div class="mini-card"><h3>Act</h3><p class="subtle">The implementation agent generates a real prototype aligned to the architecture artifact.</p></div>
-        <div class="mini-card"><h3>Verify</h3><p class="subtle">Testing and evaluation enforce quality gates and feed failures back into the loop.</p></div>
+        <div class="mini-card"><h3>Plan</h3><p class="subtle">Generate requirements, user stories, API contracts, and assumptions before writing code.</p></div>
+        <div class="mini-card"><h3>Act</h3><p class="subtle">Produce a runnable Python prototype that follows the generated architecture.</p></div>
+        <div class="mini-card"><h3>Verify</h3><p class="subtle">Run generated tests, capture failures, and surface quality and security feedback.</p></div>
       </aside>
     </section>
 
     <section class="grid">
       <div class="panel builder">
-        <h2>Build Something</h2>
+        <h2>Run the demo</h2>
         <p class="subtle">Enter a product concept. The orchestrator will run the full plan-act-verify pipeline and stream milestone progress into the panel on the right.</p>
         <form id="build-form">
           <label for="idea-input">Product idea</label>
           <textarea id="idea-input" name="idea" placeholder="Example: Internal workflow assistant for university career services teams that triages student requests and suggests next actions."></textarea>
           <div class="controls">
-            <button class="primary" id="build-button" type="submit">Run Autonomous Build</button>
-            <button class="ghost" id="fill-button" type="button">Load Competition Prompt</button>
+            <button class="primary" id="build-button" type="submit">Start build</button>
+            <button class="ghost" id="fill-button" type="button">Use sample idea</button>
           </div>
           <div class="status" id="status-line" aria-live="polite"></div>
           <div class="chips">
@@ -355,16 +355,16 @@ def render_home_page(initial_payload: dict[str, object] | None) -> str:
     <div class="stack">
       <section class="grid">
         <div class="panel copy">
-          <h2>Submission Highlights</h2>
+          <h2>Why this matters</h2>
           <div class="dual">
-            <div><h3>Why it stands out</h3><ul class="clean"><li>It does not stop at planning.</li><li>CLI, tests, and browser all share one orchestration core.</li><li>Every layer has a clear interface for stronger agents later.</li></ul></div>
-            <div><h3>Employer signal</h3><ul class="clean"><li>Agent orchestration and failure recovery</li><li>Contract-first design</li><li>Generated tests and quality gates</li><li>Deployment-ready packaging</li></ul></div>
+            <div><h3>Judge-ready narrative</h3><ul class="clean"><li>Shows a full built pipeline, not just planning output.</li><li>Shares the same orchestration core across CLI, tests, and browser.</li><li>Demonstrates autonomous refinement, test-driven feedback, and deployable packaging.</li></ul></div>
+            <div><h3>Product signal</h3><ul class="clean"><li>Clear contract-first design</li><li>Built-in verification and evaluation</li><li>Browser UI with live progress and artifact links</li><li>Containerized for real deployment</li></ul></div>
           </div>
         </div>
         <div class="panel deploy">
-          <h2>Deployable Shape</h2>
-          <p class="subtle">The repo ships with a standard-library demo server, CI, a hardened Dockerfile, and deployment notes. Run it locally with <code class="inline">python -m multi_agent_builder.demo.server</code> or inside a container.</p>
-          <div class="detail-list"><span class="link-chip">Async demo jobs</span><span class="link-chip">Container packaging</span><span class="link-chip">Artifact links</span><span class="link-chip">Submission-ready copy</span></div>
+          <h2>Deployed demo shape</h2>
+          <p class="subtle">The project is ready to run locally or in a container. It now includes deployment guidance for cloud hosting with Render or any Docker-compatible platform.</p>
+          <div class="detail-list"><span class="link-chip">Live builds</span><span class="link-chip">Persistent jobs</span><span class="link-chip">Artifact explorer</span><span class="link-chip">CI + Docker</span></div>
         </div>
       </section>
     </div>

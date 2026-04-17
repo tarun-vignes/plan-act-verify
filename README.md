@@ -32,6 +32,18 @@ tests/
 
 The generated application for each run lives under `runs/<timestamp>-<product-slug>/prototype/`.
 
+## Quickstart
+
+1. Run the browser demo locally:
+
+```powershell
+.\demo.ps1
+```
+
+2. Open `http://127.0.0.1:8000` and submit a product idea.
+
+3. Inspect generated artifacts under `runs/<run-id>/artifacts/`.
+
 ## Usage
 
 Run a build from the repository root:
@@ -77,15 +89,22 @@ Each run emits:
 
 ## Browser Demo
 
-The repo now includes a small frontend showcase built on the same orchestration core:
+The repo includes a frontend showcase built on the same orchestration core. It runs product idea builds asynchronously, shows live milestone progress, and lets you open generated artifacts in the browser.
 
 ```powershell
 python -m multi_agent_builder.demo.server --host 127.0.0.1 --port 8000
 ```
 
-Open `http://127.0.0.1:8000` to submit ideas, run builds, watch live milestone progress, and inspect generated artifacts in the browser.
+Open `http://127.0.0.1:8000` and submit an idea to see the full planning, implementation, testing, and evaluation pipeline in action.
 
-Browser build jobs are also persisted to disk, so completed runs and job status remain queryable across app restarts.
+Browser build jobs are persisted under `runs/_jobs`, so completed runs remain available after restarts.
+
+## Why judges should care
+
+- Demonstrates a full autonomous software engineering pipeline, not only generated ideas.
+- Delivers a runnable app, generated tests, and a structured build summary from one prompt.
+- Includes a browser UI, Docker deployment path, and CI checks for a polished submission.
+- Uses a modular agent architecture so future upgrades can swap in stronger planners, backends, or policy agents.
 
 ## CI
 
