@@ -1,6 +1,6 @@
 # Multi-Agent Prototype Builder
 
-`multi-agent-builder` is a production-style autonomous build system that turns a high-level product idea into a working Python prototype, generated tests, an evaluation report, and a structured build summary.
+`plan-act-verify` is a production-style autonomous build system that turns a high-level product idea into a working Python prototype, generated tests, an evaluation report, and a structured build summary.
 
 The system is intentionally split into independent layers:
 
